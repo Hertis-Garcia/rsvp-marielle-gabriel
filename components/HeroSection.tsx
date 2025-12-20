@@ -34,7 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ groom, bride }) => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="assets/rsvp_logo.jpg" 
+          src="/rsvp_logo.jpg" 
           alt="Background" 
           className="w-full h-full object-cover opacity-60"
         />
