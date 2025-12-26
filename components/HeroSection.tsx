@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import React from "react";
+import { ArrowDown } from "lucide-react";
 
 interface HeroSectionProps {
   groom: string;
@@ -8,21 +8,29 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ groom, bride }) => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-center">
-      
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-center"
+    >
       {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-6 md:px-12">
+      <nav className="absolute top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-6 md:px-20">
         {/* Logo */}
-        <div className="font-serif text-3xl text-wedding-charcoal tracking-widest font-bold">
-          M <span className="text-wedding-black italic font-normal">&</span> G
-        </div>
-        
+        <img
+          src="/monogram.png"
+          alt="monogram logo"
+          className="
+            h-20 w-20
+            md:h-32 md:w-32
+            object-contain
+            "
+        />
+
         {/* Nav Links */}
         <div className="hidden md:flex space-x-8">
-          {['Home', 'Details', 'RSVP'].map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+          {["Home", "Details", "RSVP"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
               className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-wedding-charcoal/80 hover:text-wedding-gold transition-colors duration-300"
             >
               {item}
@@ -33,12 +41,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ groom, bride }) => {
 
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/rsvp_logo.jpg" 
-          alt="Background" 
-          className="w-full h-full object-cover opacity-60"
+        {/* Desktop Background */}
+        <img
+          src="/landscape.png"
+          alt="Background Desktop"
+          className="hidden md:block w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-wedding-cream/40 backdrop-blur-[2px]"></div>
+
+        {/* Mobile Background Placeholder */}
+        <img
+          src="/portrait.png"
+          alt="Background Mobile"
+          className="block md:hidden w-full h-full object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-wedding-cream/40"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-4xl px-6 py-12 flex flex-col items-center gap-8 fade-in-up">
@@ -55,13 +73,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ groom, bride }) => {
         {/* Video Placeholder */}
         <div className="w-full max-w-2xl bg-white p-2 shadow-2xl rounded-sm rotate-1 hover:rotate-0 transition-transform duration-700 ease-out">
           <div className="aspect-video bg-wedding-charcoal/10 relative overflow-hidden group cursor-pointer">
-             <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/GTTsVaOA_AY?feature=youtu.be" 
-                title="Our Story"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/GTTsVaOA_AY?feature=youtu.be"
+              title="Our Story"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             ></iframe>
             <div className="absolute inset-0 pointer-events-none border border-wedding-gold/20"></div>
           </div>
@@ -76,13 +94,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ groom, bride }) => {
             — Edgar Allan Poe
           </p>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 animate-bounce text-wedding-charcoal/50">
-        <a href="#details" aria-label="Scroll down">
-          <ArrowDown size={32} strokeWidth={1} />
-        </a>
       </div>
     </section>
   );
